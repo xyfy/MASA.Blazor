@@ -18,7 +18,7 @@
     </MCol>
     <MCol Cols="12" Sm="6" Class="py-2">
         <p>Multiple</p>
-        <MButtonGroup Dense BackgroundColor="primary" Dark Multiple @bind-Values="toggleMultiple">
+        <MButtonGroup Dense BackgroundColor="primary" Dark Multiple @bind-Value="toggleMultiple">
             <MButton>
                 <MIcon>mdi-format-bold</MIcon>
             </MButton>
@@ -116,10 +116,10 @@
 </MRow>
 
 @code {
-    StringNumber text = "center";
-    StringNumber icon = "justify";
-    StringNumber toggleNone;
-    StringNumber toggleOne = 0;
-    StringNumber toggleExclusive = 2;
-    List<StringNumber> toggleMultiple = new() { 0, 1, 2 };
+    StringNumberOrMore text = "center";
+    StringNumberOrMore icon = "justify";
+    StringNumberOrMore toggleNone;
+    StringNumberOrMore toggleOne = 0;
+    StringNumberOrMore toggleExclusive = 2;
+    StringNumberOrMore toggleMultiple = new int[] { 0, 1, 2 };
 }

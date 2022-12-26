@@ -14,7 +14,7 @@ public partial class Usage : NextTickComponentBase
     private RenderFragment? _childContent;
 
     private bool _rendered;
-    private StringNumber? _toggleValue;
+    private StringNumberOrMore? _toggleValue;
 
     private bool HasRightOptions => _checkboxParameters.Any() || _sliderParameters.Any() || _selectParameters.Any();
 
@@ -141,13 +141,13 @@ public partial class Usage : NextTickComponentBase
         }
     }
 
-    private void ToggleValueChanged(StringNumber val)
+    private void ToggleValueChanged(StringNumberOrMore val)
     {
         _toggleValue = val;
 
         foreach (var parameter in _toggleParameters)
         {
-            parameter.Value = val == parameter.Key;
+            parameter.Value = val.AsString == parameter.Key;
         }
     }
 

@@ -189,7 +189,7 @@ public partial class MCarousel : MWindow, ICarousel, IDisposable
         }
     }
 
-    public async Task InternalValueChanged(StringNumber val)
+    public async Task InternalValueChanged(StringNumberOrMore val)
     {
         if (ValueChanged.HasDelegate)
         {

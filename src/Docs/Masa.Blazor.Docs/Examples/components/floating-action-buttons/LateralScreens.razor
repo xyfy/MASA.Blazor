@@ -54,13 +54,13 @@
 </style>
 
 @code {
-    private StringNumber tab = "one";
+    private StringNumberOrMore tab = "one";
 
     List<string> Items = new List<string>() { "one", "two", "three" };
 
     private dynamic ComputedActiveFab()
     {
-        switch (tab.AsT0)
+        switch (tab.AsString)
         {
             case "one":
                 return new { Color = "success", Icon = "mdi-share-variant" };

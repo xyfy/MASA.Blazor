@@ -2,7 +2,7 @@
 
 public class Usage : Masa.Blazor.Docs.Components.Usage
 {
-    private StringNumber _value;
+    private StringNumberOrMore _value;
 
     public Usage() : base(typeof(MChipGroup))
     {
@@ -25,7 +25,7 @@ public class Usage : Masa.Blazor.Docs.Components.Usage
     {
         { nameof(MChipGroup.ActiveClass), "primary--text" },
         { nameof(MChipGroup.Value), _value },
-        { nameof(MChipGroup.ValueChanged), EventCallback.Factory.Create<StringNumber>(this, val => _value = val) }
+        { nameof(MChipGroup.ValueChanged), EventCallback.Factory.Create<StringNumberOrMore>(this, val => _value = val) }
     };
 
     protected override object? CastValue(ParameterItem<object?> parameter)

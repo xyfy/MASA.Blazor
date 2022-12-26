@@ -73,10 +73,10 @@
     string email = "john@masablazor.com";
     int step = 1;
 
-    StringNumber Step
+    StringNumberOrMore Step
     {
         get => step;
-        set => step = value.ToInt32();
+        set => step = value.AsInt;
     }
 
     public string currentTitle
@@ -86,7 +86,7 @@
             1 => "Sign-Up",
             2 => "Create a password",
             _ => "Account Created"
-            };
+        };
     }
 
 }

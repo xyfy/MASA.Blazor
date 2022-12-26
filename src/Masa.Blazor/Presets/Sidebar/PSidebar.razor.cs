@@ -21,7 +21,7 @@
         private StringNumber _listItemGroupValue;
         private StringNumber _value;
 
-        private async Task ListItemGroupValueChanged(StringNumber v)
+        private async Task ListItemGroupValueChanged(StringNumberOrMore v)
         {
             _listItemGroupValue = v;
             await UpdateValue(v);

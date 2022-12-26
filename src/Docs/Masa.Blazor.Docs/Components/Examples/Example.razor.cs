@@ -22,7 +22,7 @@ public partial class Example : NextTickComponentBase
     private bool _rendered;
     private bool _dark;
     private bool _expand;
-    private StringNumber _selected = 0;
+    private StringNumberOrMore _selected = 0;
     private Type? _type;
     private List<(string Icon, string Path, Action? OnClick, string? href)> _tooltips = new();
 

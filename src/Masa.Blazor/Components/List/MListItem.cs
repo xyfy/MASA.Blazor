@@ -74,7 +74,7 @@ namespace Masa.Blazor
 
                             if (ItemGroup == null) return false;
 
-                            if (ItemGroup.Multiple) return ItemGroup.Values.Contains(Value);
+                            if (ItemGroup.Multiple) return ItemGroup.Value.ToList().Contains(Value);
 
                             return ItemGroup.Value == Value;
                         })

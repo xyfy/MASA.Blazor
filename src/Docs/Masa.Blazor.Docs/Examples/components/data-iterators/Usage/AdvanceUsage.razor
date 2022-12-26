@@ -38,7 +38,7 @@
             </MSelect>
             <MSpacer class="hidden-sm-and-down" />
             <MButtonGroup Value="_sortDesc.ToString()"
-                          ValueChanged='@(val => _sortDesc = val == "True")'
+                          ValueChanged='@(val => _sortDesc = val.AsString == "True")'
                           Mandatory
                           Class="hidden-sm-and-down">
                 <MButton Large Depressed Color="blue" Value="@("False")">

@@ -12,8 +12,8 @@
         Class="px-2 pb-2 ma-0"
         Justify="JustifyTypes.SpaceBetween">
         <MButtonGroup
-            @bind-Values="formatting"
-            multiple>
+            @bind-Value="formatting"
+            Multiple>
             <MButton>
                 <MIcon>mdi-format-italic</MIcon>
             </MButton>
@@ -86,8 +86,8 @@
 
 @code {
 
-    StringNumber alignment = 1;
-    List<StringNumber> formatting = new();
+    StringNumberOrMore alignment = 1;
+    StringNumberOrMore formatting;
     List<int> numbers = new() {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
     List<string> letters = "q w e r t y u i o p".Split(" ").ToList();
     string value = "Toggle button requirements.\r\rHave at least three toggle buttons in a group\rLabel buttons with text, an icon, or";

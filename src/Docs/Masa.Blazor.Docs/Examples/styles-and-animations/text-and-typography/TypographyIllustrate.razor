@@ -40,7 +40,7 @@
 
 @code {
 
-    StringNumber _model = "caption";
+    StringNumberOrMore _model = "caption";
     string[][] _sizes = new string[][]
     {
         new string[]
@@ -67,7 +67,7 @@
 
     string[] Current()
     {
-        return _sizes.First(size => size[2] == _model);
+        return _sizes.First(size => size[2] == _model.AsString);
     }
 
     string TypeClass()

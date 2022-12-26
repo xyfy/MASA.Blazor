@@ -31,7 +31,7 @@ public partial class PCron
 
     private string _errorMessage = string.Empty;
 
-    private StringNumber _selectedPeriod;
+    private StringNumberOrMore _selectedPeriod;
 
     private List<CronItemModel> CronItems { get; set; } = new();
 

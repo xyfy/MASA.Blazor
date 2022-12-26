@@ -8,7 +8,7 @@
             mdi-plus
         </MIcon>
     </MRow>
-    <MCarousel Value="Value" ValueChanged="v => Value = v.AsT1">
+    <MCarousel Value="@Value" ValueChanged="v => Value = v.AsInt">
         @for (var i = 0; i < colors.Length; i++)
         {
             var index = i;

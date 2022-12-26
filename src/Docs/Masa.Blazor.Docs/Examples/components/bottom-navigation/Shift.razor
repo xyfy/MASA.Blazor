@@ -30,16 +30,16 @@
 
 @code {
 
-    StringNumber value = 1;
+    StringNumberOrMore value = 1;
 
     string color
     {
         get
         {
-            if (value == 0) return "blue-grey";
-            if (value == 1) return "teal";
-            if (value == 2) return "brown";
-            if (value == 3) return "indigo";
+            if (value.AsInt == 0) return "blue-grey";
+            if (value.AsInt == 1) return "teal";
+            if (value.AsInt == 2) return "brown";
+            if (value.AsInt == 3) return "indigo";
             return "blue-grey";
         }
     }
