@@ -1,21 +1,18 @@
 ﻿@namespace Masa.Docs.Shared.Components
 
-@if (MasaBlazor?.Breakpoint?.Mobile is not true)
+@inject IJSRuntime Js
+@inject I18n I18n
+
+@if (MasaBlazor?.Breakpoint.SmAndUp is true)
 {
-    <div id="docsearch" style="background-color:#F6F8FD;max-width: 340px" class="search-input rounded-lg @Class" />
+    <div id="docsearch" style="max-width: 340px" class="mr-6 @Class"></div>
 }
 else
 {
-    <div id="docsearch-mobile" style="background-color:#F6F8FD;" class="search-input rounded-sm @Class" />
+    <div id="docsearch-mobile" class=" @Class"></div>
 }
 
 @code {
-
-    [Inject]
-    public IJSRuntime? Js { get; set; }
-
-    [Inject]
-    public I18n? I18n { get; set; }
 
     [Inject]
     public MasaBlazor? MasaBlazor { get; set; }
@@ -27,23 +24,23 @@ else
     public string? Env { get; set; } = null!;
 
     [Parameter]
-    public string Class { get; set; } = "mr-6";
+    public string Class { get; set; } = "";
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        await base.OnAfterRenderAsync(firstRender);
         if (firstRender)
         {
-            await InitDocSearchAsync();
+            await Task.Delay(300);
+            await InitDocSearchAsync().ConfigureAwait(false);
         }
     }
 
-    public async Task InitDocSearchAsync()
+    public async ValueTask InitDocSearchAsync()
     {
-        if (Project is not null)
-        {
-            var currentLanguage = I18n!.Culture.TwoLetterISOLanguageName;
-            var indexName = Env + I18n.Culture.TwoLetterISOLanguageName + "_" + Project;
-            await Js!.InvokeVoidAsync("addDocSearch", indexName, MasaBlazor?.Breakpoint?.Mobile, currentLanguage, I18n.T("Search"));
-        }
+        if (Project is null) return;
+        var currentLanguage = I18n!.Culture.TwoLetterISOLanguageName;
+        var indexName = Env + I18n.Culture.TwoLetterISOLanguageName + "_" + Project;
+        await Js.InvokeVoidAsync("addDocSearch", indexName, MasaBlazor?.Breakpoint.SmAndUp is not true, currentLanguage, I18n.T("Search"));
     }
 }

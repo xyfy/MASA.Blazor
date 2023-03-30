@@ -21,6 +21,13 @@
             }
         </div>
     }
+    else
+    {
+        @if (!string.IsNullOrEmpty(Project))
+        {
+            <Search @ref="_algoliaSearch" />
+        }
+    }
 
     <LanguageMenu OnCultureChanged="OnCultureChangedLocal" />
 
